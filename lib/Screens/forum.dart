@@ -5,15 +5,27 @@ import '../pages/explore.dart';
 import '../pages/newsfeed.dart';
 import '../pages/trips.dart';
 
-class MainScreen extends StatefulWidget {
+class Forum extends StatefulWidget {
   @override
-  _MainScreenState createState() => _MainScreenState();
+  _ForumState createState() => _ForumState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _ForumState extends State<Forum> {
   PageController? _pageController;
   int _page = 0;
   int selectedItem = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: 0);
+  }
+
+  @override
+  void dispose() {
+    _pageController?.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,101 +46,64 @@ class _MainScreenState extends State<MainScreen> {
           padding: const EdgeInsets.only(bottom: 10.0, left: 15),
           child: Row(
             children: [
-              InkWell(
-                onTap: () {
-                  setState(() {
-                    navigationTapped(0);
-                  });
-                  selectItem(0);
-                },
-                child: Container(
-                  height: 35,
-                  width: 35,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: 0 == selectedItem ? Colors.red : Colors.grey[300],
-                  ),
-                  child: Center(
-                    child: Icon(
-                      Iconsax.home,
-                      color: 0 == selectedItem ? Colors.white : Colors.black,
-                      size: 20,
-                    ),
-                  ),
-                ),
-              ),
+              _buildNavItem(0, Iconsax.home),
               SizedBox(width: 10),
-              InkWell(
-                onTap: () {
-                  setState(() {
-                    navigationTapped(1);
-                  });
-                  selectItem(1);
-                  print(_page);
-                },
-                child: Container(
-                  height: 35,
-                  width: 35,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: 1 == selectedItem ? Colors.red : Colors.grey[300],
-                  ),
-                  child: Center(
-                    child: Icon(
-                      Ionicons.compass_outline,
-                      color: 1 == selectedItem ? Colors.white : Colors.black,
-                      size: 20,
-                    ),
-                  ),
-                ),
-              ),
+              _buildNavItem(1, Ionicons.compass_outline),
               SizedBox(width: 10),
-              InkWell(
-                onTap: () {
-                  setState(() {
-                    navigationTapped(2);
-                  });
-                  selectItem(2);
-                },
-                child: Container(
-                  height: 35,
-                  width: 35,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: 2 == selectedItem ? Colors.red : Colors.grey[300],
-                  ),
-                  child: Center(
-                    child: Icon(
-                      Iconsax.menu_board,
-                      color: 2 == selectedItem ? Colors.white : Colors.black,
-                      size: 20,
-                    ),
-                  ),
-                ),
-              ),
+              _buildNavItem(2, Iconsax.menu_board),
               Spacer(),
-              InkWell(
-                onTap: () => print('Add Story'),
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 20.0),
-                  child: Container(
-                    height: 35,
-                    width: 35,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.black,
-                    ),
-                    child: Center(
-                      child: Icon(
-                        Ionicons.add,
-                        color: Colors.white,
-                        size: 15,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              _buildAddStoryButton(),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildNavItem(int index, IconData icon) {
+    return InkWell(
+      onTap: () {
+        setState(() {
+          navigationTapped(index);
+        });
+        selectItem(index);
+      },
+      child: Container(
+        height: 35,
+        width: 35,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: index == selectedItem ? Colors.red : Colors.grey[300],
+        ),
+        child: Center(
+          child: Icon(
+            icon,
+            color: index == selectedItem ? Colors.white : Colors.black,
+            size: 20,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildAddStoryButton() {
+    return InkWell(
+      onTap: () => print('Add Story'),
+      child: Padding(
+        padding: const EdgeInsets.only(right: 20.0),
+        child: Container(
+          height: 35,
+          width: 35,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.black,
+          ),
+          child: Center(
+            child: Icon(
+              Ionicons.add,
+              color: Colors.white,
+              size: 15,
+            ),
           ),
         ),
       ),
@@ -139,25 +114,13 @@ class _MainScreenState extends State<MainScreen> {
     _pageController!.jumpToPage(page);
   }
 
-  @override
-  void initState() {
-    super.initState();
-    _pageController = PageController(initialPage: 0);
-  }
-
   void onPageChanged(int page) {
     setState(() {
-      this._page = page;
+      _page = page;
     });
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-    _pageController!.dispose();
-  }
-
-  selectItem(page) {
+  void selectItem(int page) {
     setState(() {
       selectedItem = page;
     });

@@ -9,7 +9,7 @@ class _ActivityState extends State<Activity> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('3'),
+      child: Text('Aun no has realizado ninguna actividad'),
     );
   }
 }

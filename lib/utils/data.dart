@@ -48,12 +48,12 @@ List city = [
 ];
 List data = List.generate(10, (index)=>{
   "name": names[random.nextInt(5)],
- "city": city[random.nextInt(5)],
- "location": location[random.nextInt(5)],
- "places": places[random.nextInt(5)],
- "dp": "assets/images/friends/dp${random.nextInt(4)}.jpg",
- "posts": "assets/images/posts/post${random.nextInt(3)}.jpg",
- "saved": "assets/images/saved/saved${random.nextInt(4)}.jpg",
- "story": "assets/images/story/cm${random.nextInt(10)}.jpeg",
+  "city": city[random.nextInt(5)],
+  "location": location[random.nextInt(5)],
+  "places": places[random.nextInt(5)],
+  "dp": "assets/images/friends/dp${random.nextInt(4)}.jpg",
+  "posts": "assets/images/posts/post${random.nextInt(3)}.jpg",
+  "saved": "assets/images/saved/saved${random.nextInt(4)}.jpg",
+  "story": "assets/images/story/cm${random.nextInt(10)}.jpeg",
 });
 

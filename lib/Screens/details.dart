@@ -29,8 +29,10 @@ class _DetailsState extends State<Details> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = MediaQuery.of(context).platformBrightness == Brightness.dark;
+
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: isDarkMode ? Colors.black : Colors.white,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -47,7 +49,7 @@ class _DetailsState extends State<Details> {
                 ),
                 Container(
                   height: 350,
-                  color: Colors.black12,
+                  color: isDarkMode ? Colors.black54 : Colors.black12,
                   padding: const EdgeInsets.only(top: 50),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -126,7 +128,7 @@ class _DetailsState extends State<Details> {
                       Container(
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: isDarkMode ? Colors.grey[800] : Colors.white,
                           borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(30),
                             topRight: Radius.circular(30),
@@ -165,8 +167,8 @@ class _DetailsState extends State<Details> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  DetailsCard(title: "Booking", noOfReviews: "30 reviews", rating: 8.0),
-                  DetailsCard(title: "Booking", noOfReviews: "20 reviews", rating: 7.5),
+                  DetailsCard(title: "Booking", noOfReviews: "30 reviews", rating: 8.0, isDarkMode: isDarkMode),
+                  DetailsCard(title: "Booking", noOfReviews: "20 reviews", rating: 7.5, isDarkMode: isDarkMode),
                 ],
               ),
             ),
@@ -180,7 +182,7 @@ class _DetailsState extends State<Details> {
                     fontSize: 15,
                     height: 1.5,
                     fontWeight: FontWeight.w600,
-                    color: Color(0xff879D95)),
+                    color: isDarkMode ? Colors.white70 : Color(0xff879D95)),
               ),
             ),
             const SizedBox(height: 16),
@@ -210,15 +212,17 @@ class DetailsCard extends StatelessWidget {
   final String title;
   final String noOfReviews;
   final double rating;
+  final bool isDarkMode; // Recibir el estado del modo oscuro
 
-  DetailsCard({required this.rating, required this.title, required this.noOfReviews});
+  DetailsCard({required this.rating, required this.title, required this.noOfReviews, required this.isDarkMode});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-          color: Color(0xffE9F4F9), borderRadius: BorderRadius.circular(16)),
+          color: isDarkMode ? Colors.grey[800] : Color(0xffE9F4F9),
+          borderRadius: BorderRadius.circular(16)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -244,7 +248,7 @@ class DetailsCard extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
-                        color: Color(0xff5A6C64)),
+                        color: isDarkMode ? Colors.white : Color(0xff5A6C64)),
                   ),
                   const SizedBox(height: 6),
                   Text(
@@ -253,7 +257,7 @@ class DetailsCard extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
-                        color: Color(0xff5A6C64)),
+                        color: isDarkMode ? Colors.white : Color(0xff5A6C64)),
                   )
                 ],
               )
@@ -266,7 +270,7 @@ class DetailsCard extends StatelessWidget {
             style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: Color(0xff879D95)),
+                color: isDarkMode ? Colors.white70 : Color(0xff879D95)),
           ),
         ],
       ),
@@ -282,6 +286,8 @@ class FeaturesTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = MediaQuery.of(context).platformBrightness == Brightness.dark;
+
     return Opacity(
       opacity: 0.7,
       child: Container(
@@ -303,7 +309,7 @@ class FeaturesTile extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
-                    color: Color(0xff5A6C64)),
+                    color: isDarkMode ? Colors.white : Color(0xff5A6C64)),
               ),
             )
           ],

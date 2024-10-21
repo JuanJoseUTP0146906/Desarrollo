@@ -4,7 +4,7 @@ import '../models/popular_tours_model.dart';
 List<CountryModel> getCountrys() {
   return [
     CountryModel(
-      countryName: "Chichén Itzá ",
+      countryName: "Chichén Itzá",
       label: "Popular",
       noOfTours: 18,
       rating: 4.5,
@@ -12,7 +12,7 @@ List<CountryModel> getCountrys() {
     ),
     CountryModel(
       countryName: "Cristo Redentor",
-      label: "Mas Visitado",
+      label: "Más Visitado",
       noOfTours: 12,
       rating: 4.3,
       imgUrl: "https://images.pexels.com/photos/15397926/pexels-photo-15397926/free-photo-of-jesus-christ-sculpture-on-rock-formation.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
@@ -25,7 +25,7 @@ List<CountryModel> getCountrys() {
       imgUrl: "https://images.pexels.com/photos/19161139/pexels-photo-19161139/free-photo-of-facade-of-the-palace-tomb-in-the-petra-archaeological-park-in-jordan.jpeg?auto=compress&cs=tinysrgb&w=600",
     ),
     CountryModel(
-      countryName: "La gran Muralla",
+      countryName: "La Gran Muralla",
       label: "Aventura",
       noOfTours: 12,
       rating: 4.3,
@@ -66,19 +66,46 @@ List<CountryModel> getCountrys() {
 List<PopularTourModel> getPopularTours() {
   return [
     PopularTourModel(
-      imgUrl: "https://images.pexels.com/photos/358457/pexels-photo-358457.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-      title: "Thailand",
-      desc: "10 nights for two/all inclusive",
-      price: "\$ 245.50",
-      rating: 4.0,
+      imgUrl: "https://images.pexels.com/photos/14981609/pexels-photo-14981609/free-photo-of-chichen-itza-in-mexico.jpeg",
+      title: "Chichén Itzá",
+      desc: "Visita a la maravilla del mundo maya",
+      price: "\$ 120.00",
+      rating: 4.7,
     ),
     PopularTourModel(
-      imgUrl: "https://images.pexels.com/photos/1658967/pexels-photo-1658967.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-      title: "Cuba",
-      desc: "10 nights for two/all inclusive",
-      price: "\$ 499.99",
+      imgUrl: "https://images.pexels.com/photos/15397926/pexels-photo-15397926/free-photo-of-jesus-christ-sculpture-on-rock-formation.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+      title: "Cristo Redentor",
+      desc: "Tour por Río de Janeiro y el famoso Cristo",
+      price: "\$ 95.00",
+      rating: 4.6,
+    ),
+    PopularTourModel(
+      imgUrl: "https://images.pexels.com/photos/90597/pexels-photo-90597.jpeg?auto=compress&cs=tinysrgb&w=600",
+      title: "Machu Picchu",
+      desc: "Explora la antigua ciudad inca",
+      price: "\$ 150.00",
+      rating: 4.8,
+    ),
+    PopularTourModel(
+      imgUrl: "https://images.pexels.com/photos/7263897/pexels-photo-7263897.jpeg?auto=compress&cs=tinysrgb&w=600",
+      title: "Taj Mahal",
+      desc: "Descubre la joya de la India",
+      price: "\$ 200.00",
+      rating: 4.9,
+    ),
+    PopularTourModel(
+      imgUrl: "https://images.pexels.com/photos/6294688/pexels-photo-6294688.jpeg?auto=compress&cs=tinysrgb&w=600",
+      title: "La Gran Muralla",
+      desc: "Recorrido por la Gran Muralla China",
+      price: "\$ 180.00",
+      rating: 4.7,
+    ),
+    PopularTourModel(
+      imgUrl: "https://images.pexels.com/photos/28903455/pexels-photo-28903455/free-photo-of-stunning-black-and-white-colosseum-in-rome.jpeg?auto=compress&cs=tinysrgb&w=600",
+      title: "Coliseo Romano",
+      desc: "Visita al histórico Coliseo en Roma",
+      price: "\$ 110.00",
       rating: 4.5,
     ),
-    // Agrega más tours populares de forma similar...
   ];
 }

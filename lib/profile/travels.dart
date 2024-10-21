@@ -9,7 +9,7 @@ class _TravelsState extends State<Travels> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('4'),
+      child: Text('Aun no has realizado ningun viaje'),
     );
   }
 }
