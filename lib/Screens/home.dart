@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../data/data.dart';
 import '../models/maravilla_model.dart';
@@ -5,9 +6,13 @@ import '../models/popular_tours_model.dart';
 import 'details.dart';
 import 'forum.dart';
 import 'profile.dart';
-import 'package:flutter/material.dart';
+import 'language.dart';
 
 class Home extends StatefulWidget {
+  final Function(bool?) toggleTheme;
+
+  Home({required this.toggleTheme});
+
   @override
   _HomeState createState() => _HomeState();
 }
@@ -17,7 +22,7 @@ class _HomeState extends State<Home> {
   List<PopularTourModel> popularTourModels = [];
   List<CountryModel> country = [];
   String searchQuery = '';
-  bool isDarkMode = false; // Estado para el modo oscuro
+  bool isDarkMode = false;
 
   @override
   void initState() {
@@ -30,24 +35,22 @@ class _HomeState extends State<Home> {
     _scaffoldKey.currentState?.openDrawer();
   }
 
-  void _toggleTheme() {
+  void _toggleTheme(bool? value) {
     setState(() {
-      isDarkMode = !isDarkMode;
+      isDarkMode = value ?? false;
     });
+    widget.toggleTheme(isDarkMode); // Llama al método toggleTheme pasado desde SplashScreen
   }
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final themeData = isDarkMode
-        ? ThemeData.dark().copyWith(
-            scaffoldBackgroundColor: Colors.black,
-            appBarTheme: AppBarTheme(color: Colors.grey[850]),
-          )
-        : ThemeData.light();
-
     return MaterialApp(
-      theme: themeData,
+      theme: isDarkMode
+          ? ThemeData.dark().copyWith(
+              scaffoldBackgroundColor: Colors.black,
+              appBarTheme: AppBarTheme(color: Colors.grey[850]),
+            )
+          : ThemeData.light(),
       home: Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(
@@ -65,16 +68,10 @@ class _HomeState extends State<Home> {
               SizedBox(width: 5),
               Text(
                 "Maravillas 360",
-                style: TextStyle(color: Colors.black54, fontWeight: FontWeight.w600),
+                style: TextStyle(color: isDarkMode ? Colors.white : Colors.black54, fontWeight: FontWeight.w600),
               ),
             ],
           ),
-          actions: [
-            IconButton(
-              icon: Icon(isDarkMode ? Icons.wb_sunny : Icons.nights_stay),
-              onPressed: _toggleTheme,
-            ),
-          ],
           elevation: 0.0,
         ),
         body: SingleChildScrollView(
@@ -209,7 +206,7 @@ class _HomeState extends State<Home> {
                   padding: EdgeInsets.zero,
                   children: [
                     ListTile(
-                      leading: Icon(Icons.person),
+                      leading: Icon(Icons.person, color: isDarkMode ? Colors.white : Colors.black),
                       title: Text('Perfil', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
                       onTap: () {
                         Navigator.pop(context);
@@ -220,7 +217,7 @@ class _HomeState extends State<Home> {
                       },
                     ),
                     ListTile(
-                      leading: Icon(Icons.settings),
+                      leading: Icon(Icons.settings, color: isDarkMode ? Colors.white : Colors.black),
                       title: Text('Configuración', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
                       onTap: () {
                         Navigator.pop(context);
@@ -228,7 +225,7 @@ class _HomeState extends State<Home> {
                       },
                     ),
                     ListTile(
-                      leading: Icon(Icons.forum),
+                      leading: Icon(Icons.forum, color: isDarkMode ? Colors.white : Colors.black),
                       title: Text('Foro', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
                       onTap: () {
                         Navigator.pop(context);
@@ -239,12 +236,36 @@ class _HomeState extends State<Home> {
                       },
                     ),
                     ListTile(
-                      leading: Icon(Icons.language),
+                      leading: Icon(Icons.language, color: isDarkMode ? Colors.white : Colors.black),
                       title: Text('Idiomas', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
                       onTap: () {
                         Navigator.pop(context);
-                        print('Idiomas');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LanguagesScreen()),
+                        );
                       },
+                    ),
+                    ListTile(
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Icon(
+                                isDarkMode ? Icons.bedtime : Icons.wb_sunny,
+                                color: isDarkMode ? Colors.white : Colors.black,
+                              ),
+                              Text('Modo oscuro', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
+                          Row(
+                            children: [
+                              Switch(
+                                value: isDarkMode,
+                                onChanged: _toggleTheme,
+                                activeColor: Colors.blue,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),

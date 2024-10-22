@@ -20,6 +20,7 @@ class Details extends StatefulWidget {
 
 class _DetailsState extends State<Details> {
   late List<CountryModel> country;
+  bool isFavorite = false; // Variable para el estado del favorito
 
   @override
   void initState() {
@@ -27,12 +28,19 @@ class _DetailsState extends State<Details> {
     country = getCountrys();
   }
 
+  void toggleFavorite() {
+    setState(() {
+      isFavorite = !isFavorite; // Cambiar el estado del favorito
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    final isDarkMode = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    // Establecer el modo claro de forma predeterminada
+    bool isDarkMode = false;
 
     return Scaffold(
-      backgroundColor: isDarkMode ? Colors.black : Colors.white,
+      backgroundColor: isDarkMode ? Colors.black : Colors.white, // Fondo según el modo
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -49,7 +57,7 @@ class _DetailsState extends State<Details> {
                 ),
                 Container(
                   height: 350,
-                  color: isDarkMode ? Colors.black54 : Colors.black12,
+                  color: isDarkMode ? Colors.black54 : Colors.black12, // Fondo semi-transparente
                   padding: const EdgeInsets.only(top: 50),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,10 +75,13 @@ class _DetailsState extends State<Details> {
                               ),
                             ),
                             Spacer(),
-                            Image.asset(
-                              "assets/heart.png",
-                              height: 24,
-                              width: 24,
+                            GestureDetector(
+                              onTap: toggleFavorite, // Llamar a la función para cambiar el estado
+                              child: Icon(
+                                isFavorite ? Icons.favorite : Icons.favorite_border,
+                                color: isFavorite ? Colors.red : Colors.white,
+                                size: 24,
+                              ),
                             ),
                           ],
                         ),
@@ -84,9 +95,10 @@ class _DetailsState extends State<Details> {
                             Text(
                               widget.placeName,
                               style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 23),
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 23,
+                              ),
                             ),
                             const SizedBox(height: 12),
                             Row(
@@ -100,9 +112,10 @@ class _DetailsState extends State<Details> {
                                 Text(
                                   "Koh Chang Tai, Thailand",
                                   style: TextStyle(
-                                      color: Colors.white70,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 17),
+                                    color: Colors.white70,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 17,
+                                  ),
                                 ),
                               ],
                             ),
@@ -115,10 +128,11 @@ class _DetailsState extends State<Details> {
                                 Text(
                                   "${widget.rating}",
                                   style: TextStyle(
-                                      color: Colors.white70,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 17),
-                                )
+                                    color: Colors.white70,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 17,
+                                  ),
+                                ),
                               ],
                             ),
                           ],
@@ -128,7 +142,7 @@ class _DetailsState extends State<Details> {
                       Container(
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
-                          color: isDarkMode ? Colors.grey[800] : Colors.white,
+                          color: isDarkMode ? Colors.grey[800] : Colors.white, // Cambiar según el modo
                           borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(30),
                             topRight: Radius.circular(30),
@@ -179,10 +193,11 @@ class _DetailsState extends State<Details> {
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut scelerisque arcu quis eros auctor, eu dapibus urna congue. Nunc nisi diam, semper maximus risus dignissim, semper maximus nibh. Sed finibus ipsum eu erat finibus efficitur.",
                 textAlign: TextAlign.start,
                 style: TextStyle(
-                    fontSize: 15,
-                    height: 1.5,
-                    fontWeight: FontWeight.w600,
-                    color: isDarkMode ? Colors.white70 : Color(0xff879D95)),
+                  fontSize: 15,
+                  height: 1.5,
+                  fontWeight: FontWeight.w600,
+                  color: isDarkMode ? Colors.white : Colors.black, // Texto en función del modo
+                ),
               ),
             ),
             const SizedBox(height: 16),
@@ -246,21 +261,23 @@ class DetailsCard extends StatelessWidget {
                     title,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: isDarkMode ? Colors.white : Color(0xff5A6C64)),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: isDarkMode ? Colors.white : Color(0xff5A6C64),
+                    ),
                   ),
                   const SizedBox(height: 6),
                   Text(
                     "8.0/10",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                        color: isDarkMode ? Colors.white : Color(0xff5A6C64)),
-                  )
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: isDarkMode ? Colors.white : Color(0xff5A6C64),
+                    ),
+                  ),
                 ],
-              )
+              ),
             ],
           ),
           const SizedBox(height: 8),
@@ -268,9 +285,10 @@ class DetailsCard extends StatelessWidget {
             "Based on $noOfReviews",
             textAlign: TextAlign.center,
             style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
-                color: isDarkMode ? Colors.white70 : Color(0xff879D95)),
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
+              color: isDarkMode ? Colors.white70 : Color(0xff879D95),
+            ),
           ),
         ],
       ),
@@ -286,7 +304,8 @@ class FeaturesTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDarkMode = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    // Establecer el modo claro de forma predeterminada
+    bool isDarkMode = false;
 
     return Opacity(
       opacity: 0.7,
@@ -296,8 +315,9 @@ class FeaturesTile extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(8),
               decoration: BoxDecoration(
-                  border: Border.all(color: Color(0xff5A6C64).withOpacity(0.5)),
-                  borderRadius: BorderRadius.circular(40)),
+                border: Border.all(color: Color(0xff5A6C64).withOpacity(0.5)),
+                borderRadius: BorderRadius.circular(40),
+              ),
               child: icon,
             ),
             const SizedBox(height: 9),
@@ -307,11 +327,12 @@ class FeaturesTile extends StatelessWidget {
                 label,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: isDarkMode ? Colors.white : Color(0xff5A6C64)),
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  color: isDarkMode ? Colors.white : Color(0xff5A6C64),
+                ),
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -330,7 +351,7 @@ class RatingBar extends StatelessWidget {
       children: List.generate(5, (index) {
         return Icon(
           index < rating ? Icons.star : Icons.star_border,
-          color: Colors.white70,
+          color: Colors.black, // Cambiar color de estrellas a negro
           size: 18,
         );
       }),

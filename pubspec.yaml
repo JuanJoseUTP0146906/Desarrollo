@@ -65,6 +65,7 @@ flutter:
       - assets/images/posts/
       - assets/images/saved/
       - assets/images/story/
+      - assets/images/flags/
   fonts:
     - family: Ubuntu-Regular
       fonts:
