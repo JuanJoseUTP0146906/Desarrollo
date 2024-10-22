@@ -23,7 +23,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Maravillas 360',
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false, // Ocultar el banner de debug
+      showPerformanceOverlay: false, // Desactivar cualquier indicador de rendimiento
       theme: _buildThemeData(),
       home: SplashScreen(toggleTheme: toggleTheme),
     );
@@ -65,7 +66,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Route _createRoute() {
     return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => Home(toggleTheme: widget.toggleTheme),
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          Home(toggleTheme: widget.toggleTheme),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         return _buildSlideTransition(animation, child);
       },
@@ -73,12 +75,14 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
-  SlideTransition _buildSlideTransition(Animation<double> animation, Widget child) {
+  SlideTransition _buildSlideTransition(
+      Animation<double> animation, Widget child) {
     const begin = Offset(0.0, 1.0);
     const end = Offset.zero;
     const curve = Curves.easeInOut;
 
-    var tween = Tween<Offset>(begin: begin, end: end).chain(CurveTween(curve: curve));
+    var tween = Tween<Offset>(begin: begin, end: end)
+        .chain(CurveTween(curve: curve));
     var offsetAnimation = animation.drive(tween);
 
     return SlideTransition(

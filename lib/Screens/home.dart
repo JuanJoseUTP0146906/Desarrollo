@@ -39,12 +39,13 @@ class _HomeState extends State<Home> {
     setState(() {
       isDarkMode = value ?? false;
     });
-    widget.toggleTheme(isDarkMode); // Llama al método toggleTheme pasado desde SplashScreen
+    widget.toggleTheme(isDarkMode);
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false, // Desactiva el banner de debug
       theme: isDarkMode
           ? ThemeData.dark().copyWith(
               scaffoldBackgroundColor: Colors.black,
@@ -181,10 +182,7 @@ class _HomeState extends State<Home> {
                 child: DrawerHeader(
                   child: Row(
                     children: [
-                      IconButton(
-                        icon: Icon(Icons.close, color: Colors.white),
-                        onPressed: () => Navigator.pop(context),
-                      ),
+                    
                       Expanded(
                         child: Text(
                           'Menú',
@@ -209,7 +207,7 @@ class _HomeState extends State<Home> {
                       leading: Icon(Icons.person, color: isDarkMode ? Colors.white : Colors.black),
                       title: Text('Perfil', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
                       onTap: () {
-                        Navigator.pop(context);
+           
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => Profile()),
@@ -220,7 +218,7 @@ class _HomeState extends State<Home> {
                       leading: Icon(Icons.settings, color: isDarkMode ? Colors.white : Colors.black),
                       title: Text('Configuración', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
                       onTap: () {
-                        Navigator.pop(context);
+                      
                         print('Configuración');
                       },
                     ),
@@ -228,7 +226,7 @@ class _HomeState extends State<Home> {
                       leading: Icon(Icons.forum, color: isDarkMode ? Colors.white : Colors.black),
                       title: Text('Foro', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
                       onTap: () {
-                        Navigator.pop(context);
+              
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => Forum()),
@@ -239,7 +237,7 @@ class _HomeState extends State<Home> {
                       leading: Icon(Icons.language, color: isDarkMode ? Colors.white : Colors.black),
                       title: Text('Idiomas', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
                       onTap: () {
-                        Navigator.pop(context);
+     
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => LanguagesScreen()),
@@ -251,10 +249,10 @@ class _HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Icon(
-                                isDarkMode ? Icons.bedtime : Icons.wb_sunny,
-                                color: isDarkMode ? Colors.white : Colors.black,
-                              ),
-                              Text('Modo oscuro', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
+                            isDarkMode ? Icons.bedtime : Icons.wb_sunny,
+                            color: isDarkMode ? Colors.white : Colors.black,
+                          ),
+                          Text('Modo oscuro', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
                           Row(
                             children: [
                               Switch(
@@ -291,7 +289,6 @@ class _HomeState extends State<Home> {
     );
   }
 }
-
 class PopularTours extends StatelessWidget {
   final String imgUrl;
   final String title;

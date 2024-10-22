@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home.dart'; // Asegúrate de importar la clase Home
 
 class LanguagesScreen extends StatelessWidget {
   @override
@@ -8,16 +9,17 @@ class LanguagesScreen extends StatelessWidget {
         title: Text(
           'Seleccionar Idioma',
           style: TextStyle(
-            fontSize: 22, // Tamaño de la fuente
-            fontWeight: FontWeight.bold, // Negrita
-            color: Colors.white, // Color del texto
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
           ),
         ),
         backgroundColor: Colors.deepPurple,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back), // Icono de flecha hacia atrás
+          icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pop(context); // Regresa a la pantalla anterior
+            // Regresa a la pantalla anterior sin crear una nueva instancia de Home
+            Navigator.pop(context);
           },
         ),
       ),
@@ -29,7 +31,7 @@ class LanguagesScreen extends StatelessWidget {
           LanguageTile(language: 'Français', flagPath: 'assets/images/flags/france.jpg'),
           LanguageTile(language: 'Deutsch', flagPath: 'assets/images/flags/germany.jpg'),
           LanguageTile(language: 'Italiano', flagPath: 'assets/images/flags/italy.jpg'),
-          LanguageTile(language: '中文', flagPath: 'assets/images/flags/china.jpg'), // Agregado el chino
+          LanguageTile(language: '中文', flagPath: 'assets/images/flags/china.jpg'),
         ],
       ),
     );
@@ -48,13 +50,12 @@ class LanguageTile extends StatelessWidget {
       elevation: 4,
       margin: EdgeInsets.symmetric(vertical: 8.0),
       child: ListTile(
-        leading: Image.asset(flagPath, width: 40, height: 30), // Cambia a Image.asset para mostrar la bandera
+        leading: Image.asset(flagPath, width: 40, height: 30),
         title: Text(
           language,
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
         ),
         onTap: () {
-          // Aquí puedes agregar la lógica para cambiar el idioma
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('Idioma cambiado a $language')),
           );

@@ -1,6 +1,8 @@
 import 'dart:math';
+
 Random random = Random();
-List names = [
+
+List<String> names = [
   "Ling Waldner",
   "Gricelda Barrera",
   "Lenard Milton",
@@ -11,49 +13,51 @@ List names = [
   "Kurt Toms",
   "Rosario Gathright",
   "Kim Delph",
-  "Stacy Christensen",
 ];
-List location = [
-  "Thailand",
-  "Costa Rica",
-  "Bahamas",
-  "Nigeria",
-  "Canada",
-  "Iceland",
-  "Turkey",
-  "Australia",
-  "Germany",
-  "Saudi Arabia",
-  "Ukraine",
+
+List<String> location = [
+  "Gran Muralla China",
+  "Chichén Itzá",
+  "Machu Picchu",
+  "Cristo Redentor",
+  "Coliseo",
+  "Petra",
+  "Taj Mahal",
+  "Cañón del Antílope",
+  "Stonehenge",
+  "Pirámides de Giza",
 ];
-List places = [
-  "Blue Caves",
-  "Wonder Land",
-  "Magic Land",
-  "Attraction Parc",
-  "Waterfalls",
+
+List<String> places = [
+  "El Templo Mayor",
+  "La Plaza de San Pedro",
+  "Las Cataratas del Niágara",
+  "El Parque Nacional Torres del Paine",
+  "El Machu Picchu",
 ];
-List city = [
-  "New York",
-  "Washington Dc",
-  "Florence",
-  "Madrid",
-  "Barcelona",
-  "Alaves",
-  "Istanbul",
-  "Kirklareli",
-  "Ankara",
-  "Porto Novo",
-  "Stacy Christensen",
+
+List<String> city = [
+  "Beijing",
+  "Cancún",
+  "Cusco",
+  "Río de Janeiro",
+  "Roma",
+  "Amán",
+  "Agra",
+  "Las Vegas",
+  "Londres",
+  "El Cairo",
 ];
-List data = List.generate(10, (index)=>{
-  "name": names[random.nextInt(5)],
-  "city": city[random.nextInt(5)],
-  "location": location[random.nextInt(5)],
-  "places": places[random.nextInt(5)],
-  "dp": "assets/images/friends/dp${random.nextInt(4)}.jpg",
-  "posts": "assets/images/posts/post${random.nextInt(3)}.jpg",
-  "saved": "assets/images/saved/saved${random.nextInt(4)}.jpg",
-  "story": "assets/images/story/cm${random.nextInt(10)}.jpeg",
+
+List<Map<String, dynamic>> data = List.generate(10, (index) => {
+  "name": names[random.nextInt(names.length)],
+  "city": city[random.nextInt(city.length)],
+  "location": location[random.nextInt(location.length)],
+  "places": places[random.nextInt(places.length)],
+  "dp": "assets/images/friends/dp${random.nextInt(11)}.jpg",
+  "posts": "assets/images/posts/post${random.nextInt(6)}.jpg",
+  "saved": "assets/images/saved/saved${random.nextInt(6)}.jpg",
+  "story": "assets/images/story/cm${random.nextInt(25)}.jpg",
 });
+
 

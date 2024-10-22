@@ -20,7 +20,7 @@ class Details extends StatefulWidget {
 
 class _DetailsState extends State<Details> {
   late List<CountryModel> country;
-  bool isFavorite = false; // Variable para el estado del favorito
+  bool isFavorite = false;
 
   @override
   void initState() {
@@ -30,17 +30,17 @@ class _DetailsState extends State<Details> {
 
   void toggleFavorite() {
     setState(() {
-      isFavorite = !isFavorite; // Cambiar el estado del favorito
+      isFavorite = !isFavorite;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    // Establecer el modo claro de forma predeterminada
-    bool isDarkMode = false;
+    // Detectar el modo oscuro del sistema
+    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-      backgroundColor: isDarkMode ? Colors.black : Colors.white, // Fondo según el modo
+      backgroundColor: isDarkMode ? Colors.black : Colors.white,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -57,7 +57,7 @@ class _DetailsState extends State<Details> {
                 ),
                 Container(
                   height: 350,
-                  color: isDarkMode ? Colors.black54 : Colors.black12, // Fondo semi-transparente
+                  color: isDarkMode ? Colors.black54 : Colors.black12,
                   padding: const EdgeInsets.only(top: 50),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,7 +76,7 @@ class _DetailsState extends State<Details> {
                             ),
                             Spacer(),
                             GestureDetector(
-                              onTap: toggleFavorite, // Llamar a la función para cambiar el estado
+                              onTap: toggleFavorite,
                               child: Icon(
                                 isFavorite ? Icons.favorite : Icons.favorite_border,
                                 color: isFavorite ? Colors.red : Colors.white,
@@ -142,7 +142,7 @@ class _DetailsState extends State<Details> {
                       Container(
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
-                          color: isDarkMode ? Colors.grey[800] : Colors.white, // Cambiar según el modo
+                          color: isDarkMode ? Colors.grey[800] : Colors.white,
                           borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(30),
                             topRight: Radius.circular(30),
@@ -161,18 +161,22 @@ class _DetailsState extends State<Details> {
                 FeaturesTile(
                   icon: Icon(Icons.wifi, color: Color(0xff5A6C64)),
                   label: "Free Wi-Fi",
+                  isDarkMode: isDarkMode,
                 ),
                 FeaturesTile(
                   icon: Icon(Icons.beach_access, color: Color(0xff5A6C64)),
                   label: "Sand Beach",
+                  isDarkMode: isDarkMode,
                 ),
                 FeaturesTile(
                   icon: Icon(Icons.card_travel, color: Color(0xff5A6C64)),
                   label: "First Coastline",
+                  isDarkMode: isDarkMode,
                 ),
                 FeaturesTile(
                   icon: Icon(Icons.local_drink, color: Color(0xff5A6C64)),
                   label: "Bar and Restaurant",
+                  isDarkMode: isDarkMode,
                 ),
               ],
             ),
@@ -181,8 +185,18 @@ class _DetailsState extends State<Details> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  DetailsCard(title: "Booking", noOfReviews: "30 reviews", rating: 8.0, isDarkMode: isDarkMode),
-                  DetailsCard(title: "Booking", noOfReviews: "20 reviews", rating: 7.5, isDarkMode: isDarkMode),
+                  DetailsCard(
+                    title: "Booking",
+                    noOfReviews: "30 reviews",
+                    rating: 8.0,
+                    isDarkMode: isDarkMode,
+                  ),
+                  DetailsCard(
+                    title: "Booking",
+                    noOfReviews: "20 reviews",
+                    rating: 7.5,
+                    isDarkMode: isDarkMode,
+                  ),
                 ],
               ),
             ),
@@ -190,13 +204,13 @@ class _DetailsState extends State<Details> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Text(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut scelerisque arcu quis eros auctor, eu dapibus urna congue. Nunc nisi diam, semper maximus risus dignissim, semper maximus nibh. Sed finibus ipsum eu erat finibus efficitur.",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
                 textAlign: TextAlign.start,
                 style: TextStyle(
                   fontSize: 15,
                   height: 1.5,
                   fontWeight: FontWeight.w600,
-                  color: isDarkMode ? Colors.white : Colors.black, // Texto en función del modo
+                  color: isDarkMode ? Colors.white : Colors.black,
                 ),
               ),
             ),
@@ -214,6 +228,48 @@ class _DetailsState extends State<Details> {
                     imgUrl: country[index].imgUrl,
                   );
                 },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class FeaturesTile extends StatelessWidget {
+  final Icon icon;
+  final String label;
+  final bool isDarkMode;
+
+  FeaturesTile({required this.label, required this.icon, required this.isDarkMode});
+
+  @override
+  Widget build(BuildContext context) {
+    return Opacity(
+      opacity: 0.7,
+      child: Container(
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                border: Border.all(color: Color(0xff5A6C64).withOpacity(0.5)),
+                borderRadius: BorderRadius.circular(40),
+              ),
+              child: icon,
+            ),
+            const SizedBox(height: 9),
+            SizedBox(
+              width: 70,
+              child: Text(
+                label,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  color: isDarkMode ? Colors.white : Color(0xff5A6C64),
+                ),
               ),
             ),
           ],
@@ -296,49 +352,6 @@ class DetailsCard extends StatelessWidget {
   }
 }
 
-class FeaturesTile extends StatelessWidget {
-  final Icon icon;
-  final String label;
-
-  FeaturesTile({required this.label, required this.icon});
-
-  @override
-  Widget build(BuildContext context) {
-    // Establecer el modo claro de forma predeterminada
-    bool isDarkMode = false;
-
-    return Opacity(
-      opacity: 0.7,
-      child: Container(
-        child: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                border: Border.all(color: Color(0xff5A6C64).withOpacity(0.5)),
-                borderRadius: BorderRadius.circular(40),
-              ),
-              child: icon,
-            ),
-            const SizedBox(height: 9),
-            SizedBox(
-              width: 70,
-              child: Text(
-                label,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  color: isDarkMode ? Colors.white : Color(0xff5A6C64),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
 
 class RatingBar extends StatelessWidget {
   final int rating;
@@ -351,7 +364,7 @@ class RatingBar extends StatelessWidget {
       children: List.generate(5, (index) {
         return Icon(
           index < rating ? Icons.star : Icons.star_border,
-          color: Colors.black, // Cambiar color de estrellas a negro
+          color: Colors.yellow, // Cambiar color de estrellas a negro
           size: 18,
         );
       }),
