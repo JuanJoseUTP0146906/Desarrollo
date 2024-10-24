@@ -93,7 +93,7 @@ class _OnboardingScreenState extends State<LoginScreen> {
                     const Padding(
                       padding: EdgeInsets.symmetric(vertical: 24.0),
                       child: Text(
-                        "La compra incluye acceso a más de 20 guias, más de 20 recorridos premium, más contenido, opiniones y recompensas.",
+                        "Que empiece tu aventura",
                         style: TextStyle(),
                       ),
                     )
