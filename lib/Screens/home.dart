@@ -340,13 +340,18 @@ class _HomeState extends State<Home> {
           SizedBox(height: 8), // Espacio entre el círculo y el texto
           Text(
             label,
+<<<<<<< HEAD
             style: TextStyle(color: isDarkMode ? Colors.white : Colors.black54,),
+=======
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
+>>>>>>> 844bd90e25b3104900f910c99cd990a065bfa804
           ),
         ],
       ),
     );
   }
 }
+
 class PopularTours extends StatelessWidget {
   final String imgUrl;
   final String title;
