@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 
 class AnimatedBtn extends StatelessWidget {
@@ -13,29 +14,42 @@ class AnimatedBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Obtén el tema actual
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return GestureDetector(
       onTap: press,
       child: SizedBox(
         height: 64,
         width: 260,
         child: Stack(children: [
+          // Aquí puedes cambiar el color del fondo según el modo
           RiveAnimation.asset(
             "assets/RiveAssets/button.riv",
             controllers: [_btnAnimationController],
           ),
-          const Positioned.fill(
-              top: 8,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(CupertinoIcons.arrow_right),
-                  SizedBox(
-                    width: 8,
+          Positioned.fill(
+            top: 8,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  CupertinoIcons.arrow_right,
+                  color: isDarkMode ? Colors.grey : Colors.black, // Cambia el color del icono
+                ),
+                SizedBox(
+                  width: 8,
+                ),
+                Text(
+                  "Inicia sesion",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: isDarkMode ? Colors.grey : Colors.black, // Cambia el color del texto
                   ),
-                  Text("Inicia ahora",
-                      style: TextStyle(fontWeight: FontWeight.w600))
-                ],
-              )),
+                ),
+              ],
+            ),
+          ),
         ]),
       ),
     );

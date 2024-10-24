@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
-import 'sign_in_form.dart';
-import 'package:flutter_svg/svg.dart';
+import 'sign_in_form.dart'; // Asegúrate de que este archivo exista y esté definido correctamente
+import 'package:flutter_svg/flutter_svg.dart';
 
-import 'custom_sign_in.dart';
-
-Future<Object?> customSigninDialog(BuildContext context,
-    {required ValueChanged onClosed}) {
+// Custom Sign In Dialog
+Future<Object?> customSigninDialog(BuildContext context, {required ValueChanged onClosed}) {
   return showGeneralDialog(
-      barrierDismissible: true,
-      barrierLabel: "Sign up",
-      context: context,
-      transitionDuration: const Duration(milliseconds: 400),
-      transitionBuilder: (context, animation, secondaryAnimation, child) {
-        Tween<Offset> tween = Tween(begin: const Offset(0, -1), end: Offset.zero);
-        return SlideTransition(
-            position: tween.animate(
-                CurvedAnimation(parent: animation, curve: Curves.easeInOut)),
-            child: child);
-      },
+    barrierDismissible: true,
+    barrierLabel: "Sign in",
+    context: context,
+    transitionDuration: const Duration(milliseconds: 400),
+    transitionBuilder: (context, animation, secondaryAnimation, child) {
+      Tween<Offset> tween = Tween(begin: const Offset(0, -1), end: Offset.zero);
+      return SlideTransition(
+        position: tween.animate(CurvedAnimation(parent: animation, curve: Curves.easeInOut)),
+        child: child,
+      );
+    },
       pageBuilder: (context, _, __) => Center(
             child: Container(
               height: 620,
@@ -75,7 +73,7 @@ Future<Object?> customSigninDialog(BuildContext context,
                               padding: EdgeInsets.zero,
                               onPressed: () {},
                               icon: SvgPicture.asset(
-                                "assets/icons/email_box.svg",
+                                "assets/icons/mail.svg",
                                 height: 64,
                                 width: 64,
                               )),
@@ -83,7 +81,7 @@ Future<Object?> customSigninDialog(BuildContext context,
                               padding: EdgeInsets.zero,
                               onPressed: () {},
                               icon: SvgPicture.asset(
-                                "assets/icons/apple_box.svg",
+                                "assets/icons/apple.svg",
                                 height: 64,
                                 width: 64,
                               )),
@@ -91,7 +89,7 @@ Future<Object?> customSigninDialog(BuildContext context,
                               padding: EdgeInsets.zero,
                               onPressed: () {},
                               icon: SvgPicture.asset(
-                                "assets/icons/google_box.svg",
+                                "assets/icons/google.svg",
                                 height: 64,
                                 width: 64,
                               ))

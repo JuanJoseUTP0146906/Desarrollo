@@ -1,20 +1,18 @@
-import 'package:Maravillas360/Screens/login/components/custom_sign_up.dart';
-import 'package:Maravillas360/Screens/login/components/sign_up_form.dart';
-import 'package:Maravillas360/screens/login/components/sign_in_form.dart';
+import 'package:Maravillas360/Screens/login/components/custom_sign_in.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:rive/rive.dart';
 
-// Sign In Form
-class SignInForm extends StatefulWidget {
-  const SignInForm({super.key});
+// Sign Up Form
+class SignUpForm extends StatefulWidget {
+  const SignUpForm({super.key});
 
   @override
-  State<SignInForm> createState() => _SignInFormState();
+  State<SignUpForm> createState() => _SignUpFormState();
 }
 
-class _SignInFormState extends State<SignInForm> {
+class _SignUpFormState extends State<SignUpForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool isShowLoading = false;
   bool isShowConfetti = false;
@@ -30,7 +28,7 @@ class _SignInFormState extends State<SignInForm> {
     return controller;
   }
 
-  void signIn(BuildContext context) {
+  void signUp(BuildContext context) {
     setState(() {
       isShowLoading = true;
       isShowConfetti = true;
@@ -107,7 +105,7 @@ class _SignInFormState extends State<SignInForm> {
                 padding: const EdgeInsets.only(top: 8.0, bottom: 24),
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    signIn(context);
+                    signUp(context);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFF77D8E),
@@ -125,16 +123,16 @@ class _SignInFormState extends State<SignInForm> {
                     CupertinoIcons.arrow_right,
                     color: Color(0xFFFE0037),
                   ),
-                  label: const Text("Sign In"),
+                  label: const Text("Sign Up"),
                 ),
               ),
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop(); // Cierra el diálogo
-                  customSignupDialog(context, onClosed: (value) {});
+                  customSigninDialog(context, onClosed: (value) {});
                 },
                 child: const Text(
-                  "¿No tienes una cuenta? Regístrate",
+                  "¿Ya tienes una cuenta? Inicia sesión",
                   style: TextStyle(color: Colors.blue),
                 ),
               ),
@@ -169,6 +167,30 @@ class _SignInFormState extends State<SignInForm> {
               )
             : const SizedBox(),
       ],
+    );
+  }
+}
+
+// Custom Positioned Widget
+class CustomPositioned extends StatelessWidget {
+  const CustomPositioned({super.key, required this.child, this.size = 100});
+  final Widget child;
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned.fill(
+      child: Column(
+        children: [
+          const Spacer(),
+          SizedBox(
+            height: size,
+            width: size,
+            child: child,
+          ),
+          const Spacer(flex: 2),
+        ],
+      ),
     );
   }
 }
