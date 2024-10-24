@@ -7,6 +7,7 @@ import 'details.dart';
 import 'forum.dart';
 import 'profile.dart';
 import 'language.dart';
+import 'login/login.dart'; // Asegúrate de que esta ruta es correcta
 
 class Home extends StatefulWidget {
   final Function(bool?) toggleTheme;
@@ -45,7 +46,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false, // Desactiva el banner de debug
+      debugShowCheckedModeBanner: false,
       theme: isDarkMode
           ? ThemeData.dark().copyWith(
               scaffoldBackgroundColor: Colors.black,
@@ -69,7 +70,9 @@ class _HomeState extends State<Home> {
               SizedBox(width: 5),
               Text(
                 "Maravillas 360",
-                style: TextStyle(color: isDarkMode ? Colors.white : Colors.black54, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                    color: isDarkMode ? Colors.white : Colors.black54,
+                    fontWeight: FontWeight.w600),
               ),
             ],
           ),
@@ -82,22 +85,31 @@ class _HomeState extends State<Home> {
             children: [
               Text(
                 "¿A dónde Vamos?",
-                style: TextStyle(fontSize: 28, color: isDarkMode ? Colors.white : Colors.black54, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                    fontSize: 28,
+                    color: isDarkMode ? Colors.white : Colors.black54,
+                    fontWeight: FontWeight.w600),
               ),
               SizedBox(height: 8),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: isDarkMode ? Colors.grey[800] : Colors.white,
-                  boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.4), blurRadius: 10)],
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey.withOpacity(0.4), blurRadius: 10)
+                  ],
                 ),
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: 'Busca tu maravilla favorita...',
-                    hintStyle: TextStyle(color: isDarkMode ? Colors.white54 : Colors.black54),
+                    hintStyle: TextStyle(
+                        color: isDarkMode ? Colors.white54 : Colors.black54),
                     border: InputBorder.none,
-                    prefixIcon: Icon(Icons.search, color: isDarkMode ? Colors.white : Colors.black),
-                    contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                    prefixIcon: Icon(Icons.search,
+                        color: isDarkMode ? Colors.white : Colors.black),
+                    contentPadding:
+                        EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                   ),
                   onChanged: (value) {
                     setState(() {
@@ -128,7 +140,10 @@ class _HomeState extends State<Home> {
               SizedBox(height: 16),
               Text(
                 "Categorías",
-                style: TextStyle(fontSize: 18, color: isDarkMode ? Colors.white : Colors.black54, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                    fontSize: 18,
+                    color: isDarkMode ? Colors.white : Colors.black54,
+                    fontWeight: FontWeight.w600),
               ),
               SizedBox(height: 16),
               SingleChildScrollView(
@@ -143,7 +158,7 @@ class _HomeState extends State<Home> {
                     SizedBox(width: 16),
                     _buildCategoryButton(Icons.festival, "Diversión"),
                     SizedBox(width: 16),
-                    _buildCategoryButton(Icons.pool, "Lugares para nadar"),
+                    _buildCategoryButton(Icons.pool, "Nadar"),
                     SizedBox(width: 16),
                     _buildCategoryButton(Icons.family_restroom, "Familiar"),
                   ],
@@ -152,7 +167,10 @@ class _HomeState extends State<Home> {
               SizedBox(height: 16),
               Text(
                 "Lo más popular",
-                style: TextStyle(fontSize: 18, color: isDarkMode ? Colors.white : Colors.black54, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                    fontSize: 18,
+                    color: isDarkMode ? Colors.white : Colors.black54,
+                    fontWeight: FontWeight.w600),
               ),
               SizedBox(height: 14),
               ListView.builder(
@@ -182,7 +200,6 @@ class _HomeState extends State<Home> {
                 child: DrawerHeader(
                   child: Row(
                     children: [
-                    
                       Expanded(
                         child: Text(
                           'Menú',
@@ -204,10 +221,12 @@ class _HomeState extends State<Home> {
                   padding: EdgeInsets.zero,
                   children: [
                     ListTile(
-                      leading: Icon(Icons.person, color: isDarkMode ? Colors.white : Colors.black),
-                      title: Text('Perfil', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
+                      leading: Icon(Icons.person,
+                          color: isDarkMode ? Colors.white : Colors.black),
+                      title: Text('Perfil',
+                          style: TextStyle(
+                              color: isDarkMode ? Colors.white : Colors.black)),
                       onTap: () {
-           
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => Profile()),
@@ -215,18 +234,22 @@ class _HomeState extends State<Home> {
                       },
                     ),
                     ListTile(
-                      leading: Icon(Icons.settings, color: isDarkMode ? Colors.white : Colors.black),
-                      title: Text('Configuración', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
+                      leading: Icon(Icons.settings,
+                          color: isDarkMode ? Colors.white : Colors.black),
+                      title: Text('Configuración',
+                          style: TextStyle(
+                              color: isDarkMode ? Colors.white : Colors.black)),
                       onTap: () {
-                      
                         print('Configuración');
                       },
                     ),
                     ListTile(
-                      leading: Icon(Icons.forum, color: isDarkMode ? Colors.white : Colors.black),
-                      title: Text('Foro', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
+                      leading: Icon(Icons.forum,
+                          color: isDarkMode ? Colors.white : Colors.black),
+                      title: Text('Foro',
+                          style: TextStyle(
+                              color: isDarkMode ? Colors.white : Colors.black)),
                       onTap: () {
-              
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => Forum()),
@@ -234,13 +257,16 @@ class _HomeState extends State<Home> {
                       },
                     ),
                     ListTile(
-                      leading: Icon(Icons.language, color: isDarkMode ? Colors.white : Colors.black),
-                      title: Text('Idiomas', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
+                      leading: Icon(Icons.language,
+                          color: isDarkMode ? Colors.white : Colors.black),
+                      title: Text('Idiomas',
+                          style: TextStyle(
+                              color: isDarkMode ? Colors.white : Colors.black)),
                       onTap: () {
-     
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => LanguagesScreen()),
+                          MaterialPageRoute(
+                              builder: (context) => LanguagesScreen()),
                         );
                       },
                     ),
@@ -252,7 +278,11 @@ class _HomeState extends State<Home> {
                             isDarkMode ? Icons.bedtime : Icons.wb_sunny,
                             color: isDarkMode ? Colors.white : Colors.black,
                           ),
-                          Text('Modo oscuro', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black)),
+                          Text('Modo oscuro',
+                              style: TextStyle(
+                                  color: isDarkMode
+                                      ? Colors.white
+                                      : Colors.black)),
                           Row(
                             children: [
                               Switch(
@@ -265,6 +295,20 @@ class _HomeState extends State<Home> {
                         ],
                       ),
                     ),
+                    // Apartado para iniciar sesión
+                    ListTile(
+                      leading: Icon(Icons.login,
+                          color: isDarkMode ? Colors.white : Colors.black),
+                      title: Text('Iniciar Sesión',
+                          style: TextStyle(
+                              color: isDarkMode ? Colors.white : Colors.black)),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginScreen()),
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),
@@ -276,15 +320,29 @@ class _HomeState extends State<Home> {
   }
 
   Widget _buildCategoryButton(IconData icon, String label) {
-    return ElevatedButton.icon(
-      onPressed: () {
+    return GestureDetector(
+      onTap: () {
         print("Seleccionado: $label");
       },
-      icon: Icon(icon, color: Colors.white),
-      label: Text(label, style: TextStyle(color: Colors.white)),
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.blue,
-        padding: EdgeInsets.symmetric(horizontal: 19, vertical: 8),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: 60, // Ancho del círculo
+            height: 60, // Alto del círculo
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.grey[300], // Color grisáceo
+            ),
+            alignment: Alignment.center,
+            child: Icon(icon, color: Colors.blue, size: 30), // Ícono azul
+          ),
+          SizedBox(height: 8), // Espacio entre el círculo y el texto
+          Text(
+            label,
+            style: TextStyle(color: isDarkMode ? Colors.white : Colors.black54,),
+          ),
+        ],
       ),
     );
   }
@@ -329,7 +387,9 @@ class PopularTours extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.only(topLeft: Radius.circular(20), bottomLeft: Radius.circular(20)),
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  bottomLeft: Radius.circular(20)),
               child: CachedNetworkImage(
                 imageUrl: imgUrl,
                 width: 110,
@@ -346,17 +406,26 @@ class PopularTours extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: Color(0xff4E6059)),
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xff4E6059)),
                     ),
                     SizedBox(height: 3),
                     Text(
                       desc,
-                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: Color(0xff89A097)),
+                      style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xff89A097)),
                     ),
                     SizedBox(height: 6),
                     Text(
                       price,
-                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: Color(0xff4E6059)),
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xff4E6059)),
                     ),
                   ],
                 ),
@@ -374,7 +443,10 @@ class PopularTours extends StatelessWidget {
                 children: [
                   Text(
                     "$rating",
-                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 12),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 12),
                   ),
                   SizedBox(height: 2),
                   Icon(Icons.star, color: Colors.white, size: 20),
@@ -524,12 +596,18 @@ class _CountryListTileState extends State<CountryListTile>
                       children: [
                         Text(
                           widget.countryName,
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 14),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14),
                         ),
                         SizedBox(height: 3),
                         Text(
                           "${widget.noOfTours} Tours",
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 12),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 12),
                         ),
                       ],
                     ),
@@ -543,7 +621,10 @@ class _CountryListTileState extends State<CountryListTile>
                         children: [
                           Text(
                             "${widget.rating}",
-                            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 10),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 10),
                           ),
                           SizedBox(height: 2),
                           Icon(Icons.star, color: Colors.amber, size: 20),

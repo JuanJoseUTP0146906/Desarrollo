@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home.dart'; // Asegúrate de importar la clase Home
+// Asegúrate de importar la clase Home
 
 class LanguagesScreen extends StatelessWidget {
   @override
