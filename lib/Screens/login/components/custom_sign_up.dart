@@ -76,7 +76,7 @@ Future<Object?> customSignupDialog(BuildContext context, {required ValueChanged 
                           // Implementar el inicio de sesión con email
                         },
                         icon: SvgPicture.asset(
-                          "assets/icons/mail.svg",
+                          "assets/icons/google.svg",
                           height: 54,
                           width: 54,
                         ),
@@ -87,7 +87,7 @@ Future<Object?> customSignupDialog(BuildContext context, {required ValueChanged 
                           // Implementar el inicio de sesión con Apple
                         },
                         icon: SvgPicture.asset(
-                          "assets/icons/apple.svg",
+                          "assets/icons/facebook.svg",
                           height: 54,
                           width: 54,
                         ),
@@ -98,7 +98,7 @@ Future<Object?> customSignupDialog(BuildContext context, {required ValueChanged 
                           // Implementar el inicio de sesión con Google
                         },
                         icon: SvgPicture.asset(
-                          "assets/icons/google.svg",
+                          "assets/icons/mail.svg",
                           height: 54,
                           width: 54,
                         ),

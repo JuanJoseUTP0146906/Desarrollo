@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart'; // Asegúrate de que la ruta sea correcta
 import 'screens/home.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // Asegúrate de que el binding esté inicializado
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform, // Inicializa Firebase
+  );
   runApp(MyApp());
 }
 
@@ -23,8 +29,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Maravillas 360',
-      debugShowCheckedModeBanner: false, // Ocultar el banner de debug
-      showPerformanceOverlay: false, // Desactivar cualquier indicador de rendimiento
+      debugShowCheckedModeBanner: false,
+      showPerformanceOverlay: false,
       theme: _buildThemeData(),
       home: SplashScreen(toggleTheme: toggleTheme),
     );

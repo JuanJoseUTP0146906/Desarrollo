@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'components/animated_btn.dart';
 import 'components/custom_sign_in.dart';

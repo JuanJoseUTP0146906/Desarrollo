@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import '../screens/profile.dart';
+import '../profile.dart';
 
 AppBar header(context) {
   return AppBar(

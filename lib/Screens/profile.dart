@@ -1,10 +1,10 @@
+import 'package:Maravillas360/Screens/profile/activities.dart';
+import 'package:Maravillas360/Screens/profile/myfriends.dart';
+import 'package:Maravillas360/Screens/profile/myprofile.dart';
+import 'package:Maravillas360/Screens/profile/travels.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:ionicons/ionicons.dart';
-import '../profile/activities.dart';
-import '../profile/myfriends.dart';
-import '../profile/myprofile.dart';
-import '../profile/travels.dart';
 
 class Profile extends StatefulWidget {
   @override

@@ -73,23 +73,23 @@ Future<Object?> customSigninDialog(BuildContext context, {required ValueChanged 
                               padding: EdgeInsets.zero,
                               onPressed: () {},
                               icon: SvgPicture.asset(
-                                "assets/icons/mail.svg",
-                                height: 64,
-                                width: 64,
-                              )),
-                          IconButton(
-                              padding: EdgeInsets.zero,
-                              onPressed: () {},
-                              icon: SvgPicture.asset(
-                                "assets/icons/apple.svg",
-                                height: 64,
-                                width: 64,
-                              )),
-                          IconButton(
-                              padding: EdgeInsets.zero,
-                              onPressed: () {},
-                              icon: SvgPicture.asset(
                                 "assets/icons/google.svg",
+                                height: 64,
+                                width: 64,
+                              )),
+                          IconButton(
+                              padding: EdgeInsets.zero,
+                              onPressed: () {},
+                              icon: SvgPicture.asset(
+                                "assets/icons/facebook.svg",
+                                height: 64,
+                                width: 64,
+                              )),
+                          IconButton(
+                              padding: EdgeInsets.zero,
+                              onPressed: () {},
+                              icon: SvgPicture.asset(
+                                "assets/icons/mail.svg",
                                 height: 64,
                                 width: 64,
                               ))
