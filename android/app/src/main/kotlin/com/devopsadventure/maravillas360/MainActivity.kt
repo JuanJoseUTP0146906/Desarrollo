@@ -1,4 +1,4 @@
-package com.devopsadventure.maravillas360-360
+package com.devopsadventure.maravillas360
 
 import io.flutter.embedding.android.FlutterActivity
 

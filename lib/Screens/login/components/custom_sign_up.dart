@@ -36,13 +36,13 @@ Future<Object?> customSignupDialog(BuildContext context, {required ValueChanged 
               Column(
                 children: [
                   const Text(
-                    "Sign Up",
-                    style: TextStyle(fontSize: 34, fontFamily: "Poppins"),
+                    "Registrate",
+                    style: TextStyle(fontSize: 30, fontFamily: "Poppins"),
                   ),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 16),
                     child: Text(
-                      "Create your account",
+                      "",
                       textAlign: TextAlign.center,
                     ),
                   ),

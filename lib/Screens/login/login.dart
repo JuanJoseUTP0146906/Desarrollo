@@ -61,7 +61,7 @@ class _OnboardingScreenState extends State<LoginScreen> {
                         Text(
                           "Maravillas 360",
                           style: TextStyle(
-                              fontSize: 55, fontFamily: "Poppins", height: 1.2),
+                              fontSize: 50, fontFamily: "Poppins", height: 1.2),
                         ),
                         SizedBox(
                           height: 16,
