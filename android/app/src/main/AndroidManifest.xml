@@ -1,6 +1,6 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.devopsadventure.maravillas360">
     <application
-        android:label="Maravillas 360"
+        android:label="Maravillas360"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
 
