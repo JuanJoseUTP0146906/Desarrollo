@@ -1,4 +1,6 @@
+import 'package:Maravillas360/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart'; // Importar para usar la localización
 import 'screens/home.dart';
 
 void main() {
@@ -8,10 +10,17 @@ void main() {
 class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
+
+  // Método estático para cambiar el idioma globalmente
+  static void setLocale(BuildContext context, Locale locale) {
+    _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
+    state?.setLocale(locale);
+  }
 }
 
 class _MyAppState extends State<MyApp> {
   bool isDarkMode = false;
+  Locale _locale = Locale('es', 'ES'); // Idioma predeterminado: español
 
   void toggleTheme(bool? value) {
     setState(() {
@@ -19,14 +28,29 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  void setLocale(Locale locale) {
+    setState(() {
+      _locale = locale;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Maravillas 360',
-      debugShowCheckedModeBanner: false, // Ocultar el banner de debug
-      showPerformanceOverlay: false, // Desactivar cualquier indicador de rendimiento
+      debugShowCheckedModeBanner: false,
       theme: _buildThemeData(),
+      locale: _locale, // Aplicar el idioma actual
       home: SplashScreen(toggleTheme: toggleTheme),
+
+      // Agregar las delegaciones de localización
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        S.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
     );
   }
 

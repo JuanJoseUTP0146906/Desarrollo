@@ -1,3 +1,5 @@
+import 'package:Maravillas360/Screens/language.dart';
+import 'package:Maravillas360/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../data/data.dart';
@@ -6,7 +8,7 @@ import '../models/popular_tours_model.dart';
 import 'details.dart';
 import 'forum.dart';
 import 'profile.dart';
-import 'language.dart';
+import '../utils/language.dart';
 import 'login/login.dart'; // Asegúrate de que esta ruta es correcta
 
 class Home extends StatefulWidget {
@@ -69,7 +71,7 @@ class _HomeState extends State<Home> {
               ),
               SizedBox(width: 5),
               Text(
-                "Maravillas 360",
+                S.current.tittleapp,
                 style: TextStyle(
                     color: isDarkMode ? Colors.white : Colors.black54,
                     fontWeight: FontWeight.w600),
@@ -84,7 +86,7 @@ class _HomeState extends State<Home> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "¿A dónde Vamos?",
+                S.current.subtitleapp,
                 style: TextStyle(
                     fontSize: 28,
                     color: isDarkMode ? Colors.white : Colors.black54,
@@ -102,7 +104,7 @@ class _HomeState extends State<Home> {
                 ),
                 child: TextField(
                   decoration: InputDecoration(
-                    hintText: 'Busca tu maravilla favorita...',
+                    hintText: S.current.search,
                     hintStyle: TextStyle(
                         color: isDarkMode ? Colors.white54 : Colors.black54),
                     border: InputBorder.none,
@@ -139,7 +141,7 @@ class _HomeState extends State<Home> {
               ),
               SizedBox(height: 16),
               Text(
-                "Categorías",
+                S.current.category,
                 style: TextStyle(
                     fontSize: 18,
                     color: isDarkMode ? Colors.white : Colors.black54,
@@ -150,23 +152,23 @@ class _HomeState extends State<Home> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    _buildCategoryButton(Icons.restaurant, "Comidas"),
+                    _buildCategoryButton(Icons.restaurant, S.current.restaurant),
                     SizedBox(width: 16),
-                    _buildCategoryButton(Icons.hotel, "Hospedajes"),
+                    _buildCategoryButton(Icons.hotel, S.current.hotel),
                     SizedBox(width: 16),
-                    _buildCategoryButton(Icons.local_bar, "Bebidas"),
+                    _buildCategoryButton(Icons.local_bar, S.current.bar),
                     SizedBox(width: 16),
-                    _buildCategoryButton(Icons.festival, "Diversión"),
+                    _buildCategoryButton(Icons.festival, S.current.festival),
                     SizedBox(width: 16),
-                    _buildCategoryButton(Icons.pool, "Nadar"),
+                    _buildCategoryButton(Icons.pool, S.current.pool),
                     SizedBox(width: 16),
-                    _buildCategoryButton(Icons.family_restroom, "Familiar"),
+                    _buildCategoryButton(Icons.family_restroom, S.current.family),
                   ],
                 ),
               ),
               SizedBox(height: 16),
               Text(
-                "Lo más popular",
+                S.current.popular,
                 style: TextStyle(
                     fontSize: 18,
                     color: isDarkMode ? Colors.white : Colors.black54,
@@ -202,7 +204,7 @@ class _HomeState extends State<Home> {
                     children: [
                       Expanded(
                         child: Text(
-                          'Menú',
+                          S.current.menu,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 24,
@@ -223,7 +225,7 @@ class _HomeState extends State<Home> {
                     ListTile(
                       leading: Icon(Icons.person,
                           color: isDarkMode ? Colors.white : Colors.black),
-                      title: Text('Perfil',
+                      title: Text(S.current.perfil,
                           style: TextStyle(
                               color: isDarkMode ? Colors.white : Colors.black)),
                       onTap: () {
@@ -236,7 +238,7 @@ class _HomeState extends State<Home> {
                     ListTile(
                       leading: Icon(Icons.settings,
                           color: isDarkMode ? Colors.white : Colors.black),
-                      title: Text('Configuración',
+                      title: Text(S.current.config,
                           style: TextStyle(
                               color: isDarkMode ? Colors.white : Colors.black)),
                       onTap: () {
@@ -246,7 +248,7 @@ class _HomeState extends State<Home> {
                     ListTile(
                       leading: Icon(Icons.forum,
                           color: isDarkMode ? Colors.white : Colors.black),
-                      title: Text('Foro',
+                      title: Text(S.current.foro,
                           style: TextStyle(
                               color: isDarkMode ? Colors.white : Colors.black)),
                       onTap: () {
@@ -259,7 +261,7 @@ class _HomeState extends State<Home> {
                     ListTile(
                       leading: Icon(Icons.language,
                           color: isDarkMode ? Colors.white : Colors.black),
-                      title: Text('Idiomas',
+                      title: Text(S.current.language,
                           style: TextStyle(
                               color: isDarkMode ? Colors.white : Colors.black)),
                       onTap: () {
@@ -278,7 +280,7 @@ class _HomeState extends State<Home> {
                             isDarkMode ? Icons.bedtime : Icons.wb_sunny,
                             color: isDarkMode ? Colors.white : Colors.black,
                           ),
-                          Text('Modo oscuro',
+                          Text(S.current.dark,
                               style: TextStyle(
                                   color: isDarkMode
                                       ? Colors.white
@@ -299,7 +301,7 @@ class _HomeState extends State<Home> {
                     ListTile(
                       leading: Icon(Icons.login,
                           color: isDarkMode ? Colors.white : Colors.black),
-                      title: Text('Iniciar Sesión',
+                      title: Text(S.current.sesion,
                           style: TextStyle(
                               color: isDarkMode ? Colors.white : Colors.black)),
                       onTap: () {

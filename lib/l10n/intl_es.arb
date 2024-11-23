@@ -1,0 +1,31 @@
+{
+
+    
+    "tittleapp": "Maravillas 360",
+    "subtitleapp": "¿A dónde Vamos?",
+    "search":"Busca tu maravilla favorita...",
+    "category": "Categorías",
+    "restaurant":"Comidas",
+    "hotel":"Hospedajes",
+    "bar":"Bebidas",
+    "festival":"Diversión",
+    "pool":"Nadar",
+    "family":"Familiar",
+    "popular":"Lo más popular",
+    "menu":"Menú",
+    "perfil":"Perfil",
+    "config":"Configuración",
+    "foro":"Foro",
+    "language":"Idiomas",
+    "dark":"Modo oscuro",
+    "sesion":"Iniciar Sesión",
+
+    "planguage":"Seleccionar Idioma",
+    "espanol": "Español",
+    "ingles": "Inglés",
+    "aleman": "Alemán",
+    "frances": "Francés",
+    "italiano": "Italiano",
+    "chino": "Chino"
+
+}

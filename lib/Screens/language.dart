@@ -1,5 +1,7 @@
+import 'package:Maravillas360/generated/l10n.dart';
 import 'package:flutter/material.dart';
-// Asegúrate de importar la clase Home
+import 'package:flutter/widgets.dart';
+import './/main.dart'; // Asegúrate de importar main.dart para acceder a MyApp
 
 class LanguagesScreen extends StatelessWidget {
   @override
@@ -7,7 +9,7 @@ class LanguagesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Seleccionar Idioma',
+          S.current.planguage,
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.bold,
@@ -18,7 +20,6 @@ class LanguagesScreen extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            // Regresa a la pantalla anterior sin crear una nueva instancia de Home
             Navigator.pop(context);
           },
         ),
@@ -26,12 +27,12 @@ class LanguagesScreen extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.all(16.0),
         children: [
-          LanguageTile(language: 'Español', flagPath: 'assets/images/flags/spain.jpg'),
-          LanguageTile(language: 'English', flagPath: 'assets/images/flags/uk.jpg'),
-          LanguageTile(language: 'Français', flagPath: 'assets/images/flags/france.jpg'),
-          LanguageTile(language: 'Deutsch', flagPath: 'assets/images/flags/germany.jpg'),
-          LanguageTile(language: 'Italiano', flagPath: 'assets/images/flags/italy.jpg'),
-          LanguageTile(language: '中文', flagPath: 'assets/images/flags/china.jpg'),
+          LanguageTile(language: 'Español', flagPath: 'assets/images/flags/spain.jpg', locale: Locale('es', 'ES')),
+          LanguageTile(language: 'English', flagPath: 'assets/images/flags/uk.jpg', locale: Locale('en', 'US')),
+          LanguageTile(language: 'Français', flagPath: 'assets/images/flags/france.jpg', locale: Locale('fr', 'FR')),
+          LanguageTile(language: 'Deutsch', flagPath: 'assets/images/flags/germany.jpg', locale: Locale('de', 'DE')),
+          LanguageTile(language: 'Italiano', flagPath: 'assets/images/flags/italy.jpg', locale: Locale('it', 'IT')),
+          LanguageTile(language: '中文', flagPath: 'assets/images/flags/china.jpg', locale: Locale('zh', 'CN')),
         ],
       ),
     );
@@ -41,8 +42,9 @@ class LanguagesScreen extends StatelessWidget {
 class LanguageTile extends StatelessWidget {
   final String language;
   final String flagPath;
+  final Locale locale;
 
-  const LanguageTile({required this.language, required this.flagPath});
+  const LanguageTile({required this.language, required this.flagPath, required this.locale});
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +61,8 @@ class LanguageTile extends StatelessWidget {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('Idioma cambiado a $language')),
           );
+          // Cambiar el idioma utilizando MyApp.setLocale
+          MyApp.setLocale(context, locale);
         },
       ),
     );

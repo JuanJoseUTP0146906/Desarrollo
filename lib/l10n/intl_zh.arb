@@ -1,0 +1,29 @@
+{
+    
+    "tittleapp": "奇观 360",
+    "subtitleapp": "我们去哪儿？",
+    "search": "搜索你最喜欢的奇观...",
+    "category": "类别",
+    "restaurant": "餐饮",
+    "hotel": "住宿",
+    "bar": "饮品",
+    "festival": "娱乐",
+    "pool": "游泳",
+    "family": "家庭",
+    "popular": "最受欢迎",
+    "menu": "菜单",
+    "perfil": "个人资料",
+    "config": "设置",
+    "foro": "论坛",
+    "language": "语言",
+    "dark": "黑暗模式",
+    "sesion": "登录",
+
+    "planguage": "选择语言",
+    "espanol": "西班牙语",
+    "ingles": "英语",
+    "aleman": "德语",
+    "frances": "法语",
+    "italiano": "意大利语",
+    "chino": "中文"
+}

@@ -1,0 +1,33 @@
+{
+    
+    "tittleapp": "Merveilles 360",
+    "subtitleapp": "Où allons-nous ?",
+    "search": "Recherchez votre merveille préférée...",
+    "category": "Catégories",
+    "restaurant": "Repas",
+    "hotel": "Hébergements",
+    "bar": "Boissons",
+    "festival": "Amusement",
+    "pool": "Natation",
+    "family": "Familial",
+    "popular": "Le plus populaire",
+    "menu": "Menu",
+    "perfil": "Profil",
+    "config": "Paramètres",
+    "foro": "Forum",
+    "language": "Langues",
+    "dark": "Mode sombre",
+    "sesion": "Se connecter",
+
+    "planguage": "Sélectionner la langue",
+    "espanol": "Espagnol",
+    "ingles": "Anglais",
+    "aleman": "Allemand",
+    "frances": "Français",
+    "italiano": "Italien",
+    "chino": "Chinois"
+
+
+
+
+}

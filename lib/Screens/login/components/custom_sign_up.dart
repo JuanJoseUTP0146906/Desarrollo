@@ -36,13 +36,13 @@ Future<Object?> customSignupDialog(BuildContext context, {required ValueChanged 
               Column(
                 children: [
                   const Text(
-                    "Registrate",
-                    style: TextStyle(fontSize: 30, fontFamily: "Poppins"),
+                    "Sign Up",
+                    style: TextStyle(fontSize: 34, fontFamily: "Poppins"),
                   ),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 16),
                     child: Text(
-                      "",
+                      "Create your account",
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -76,7 +76,7 @@ Future<Object?> customSignupDialog(BuildContext context, {required ValueChanged 
                           // Implementar el inicio de sesión con email
                         },
                         icon: SvgPicture.asset(
-                          "assets/icons/google.svg",
+                          "assets/icons/mail.svg",
                           height: 54,
                           width: 54,
                         ),
@@ -87,7 +87,7 @@ Future<Object?> customSignupDialog(BuildContext context, {required ValueChanged 
                           // Implementar el inicio de sesión con Apple
                         },
                         icon: SvgPicture.asset(
-                          "assets/icons/facebook.svg",
+                          "assets/icons/apple.svg",
                           height: 54,
                           width: 54,
                         ),
@@ -98,7 +98,7 @@ Future<Object?> customSignupDialog(BuildContext context, {required ValueChanged 
                           // Implementar el inicio de sesión con Google
                         },
                         icon: SvgPicture.asset(
-                          "assets/icons/mail.svg",
+                          "assets/icons/google.svg",
                           height: 54,
                           width: 54,
                         ),

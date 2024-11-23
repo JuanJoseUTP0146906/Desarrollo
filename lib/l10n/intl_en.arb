@@ -1,0 +1,33 @@
+{
+    
+    "tittleapp": "Wonders 360",
+    "subtitleapp": "Where are we going?",
+    "search": "Search your favorite wonder...",
+    "category": "Categories",
+    "restaurant": "Food",
+    "hotel": "Accommodations",
+    "bar": "Drinks",
+    "festival": "Fun",
+    "pool": "Swimming",
+    "family": "Family",
+    "popular": "Most popular",
+    "menu": "Menu",
+    "perfil": "Profile",
+    "config": "Settings",
+    "foro": "Forum",
+    "language": "Languages",
+    "dark": "Dark mode",
+    "sesion": "Log In",
+
+    "planguage": "Select Language",
+    "espanol": "Spanish",
+    "ingles": "English",
+    "aleman": "German",
+    "frances": "French",
+    "italiano": "Italian",
+    "chino": "Chinese"
+
+
+
+
+}

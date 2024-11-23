@@ -1,0 +1,30 @@
+{
+ 
+    "tittleapp": "Wunder 360",
+    "subtitleapp": "Wohin gehen wir?",
+    "search": "Suche dein Lieblingswunder...",
+    "category": "Kategorien",
+    "restaurant": "Essen",
+    "hotel": "Unterkünfte",
+    "bar": "Getränke",
+    "festival": "Spaß",
+    "pool": "Schwimmen",
+    "family": "Familie",
+    "popular": "Am beliebtesten",
+    "menu": "Menü",
+    "perfil": "Profil",
+    "config": "Einstellungen",
+    "foro": "Forum",
+    "language": "Sprachen",
+    "dark": "Dunkelmodus",
+    "sesion": "Einloggen",
+
+    "planguage": "Sprache auswählen",
+        "espanol": "Spanisch",
+        "ingles": "Englisch",
+        "aleman": "Deutsch",
+        "frances": "Französisch",
+        "italiano": "Italienisch",
+        "chino": "Chinesisch"
+    
+}

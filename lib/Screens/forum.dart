@@ -1,10 +1,9 @@
-import 'package:Maravillas360/Screens/pages/explore.dart';
-import 'package:Maravillas360/Screens/pages/newsfeed.dart';
-import 'package:Maravillas360/Screens/pages/trips.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:ionicons/ionicons.dart';
-
+import '../pages/explore.dart';
+import '../pages/newsfeed.dart';
+import '../pages/trips.dart';
 
 class Forum extends StatefulWidget {
   @override

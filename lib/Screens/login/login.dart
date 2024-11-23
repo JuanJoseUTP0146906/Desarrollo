@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'components/animated_btn.dart';
 import 'components/custom_sign_in.dart';
@@ -61,7 +62,7 @@ class _OnboardingScreenState extends State<LoginScreen> {
                         Text(
                           "Maravillas 360",
                           style: TextStyle(
-                              fontSize: 50, fontFamily: "Poppins", height: 1.2),
+                              fontSize: 55, fontFamily: "Poppins", height: 1.2),
                         ),
                         SizedBox(
                           height: 16,
