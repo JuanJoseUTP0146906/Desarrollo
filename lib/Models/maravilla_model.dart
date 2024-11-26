@@ -11,5 +11,6 @@ class CountryModel {
     required this.noOfTours,
     required this.rating,
     required this.imgUrl,
+    //Declaración de Variables para las fuentes e imagenes
   });
 }
